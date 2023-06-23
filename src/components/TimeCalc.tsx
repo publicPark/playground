@@ -76,13 +76,13 @@ function TimeCalc() {
           <img src={Logo} className="logo" alt="mondaine" />
         </a>
       </div>
-      <h1>TIME CALCULATOR</h1>
+      <h1>SUM TIME</h1>
       <div className="card">
         <table>
           <thead>
             <tr>
-              <td>시간</td>
-              <td>분</td>
+              <th>Hour</th>
+              <th>Minute</th>
             </tr>
           </thead>
           <tbody>
