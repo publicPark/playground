@@ -8,6 +8,10 @@
   filter: drop-shadow(0 0 2em hsla(237, 100%, 70%, 0.667));
 }
 
+table{
+  margin: 1em auto;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
