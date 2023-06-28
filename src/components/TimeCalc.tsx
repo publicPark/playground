@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Logo from '~/assets/mon.gif'
 import './TimeCalc.css'
 
@@ -46,6 +46,7 @@ function TimeCalc() {
     });
     setList(newArray);
     calculate(newArray);
+    localStorage.setItem('timelist', JSON.stringify(newArray));
   }
 
   const calculate = (newArray:HMString[]) => {
@@ -69,6 +70,17 @@ function TimeCalc() {
     </tr>
   )
 
+  useEffect(()=>{
+    const rawList = localStorage.getItem('timelist');
+    if(rawList){
+      const parsedList : [] = JSON.parse(rawList);
+      setList(parsedList);
+      calculate(parsedList);
+    }
+    
+    return;
+  }, [])
+
   return (
     <>
       <div>
@@ -81,8 +93,8 @@ function TimeCalc() {
         <table>
           <thead>
             <tr>
-              <th>Hour</th>
-              <th>Minute</th>
+              <th>HOUR</th>
+              <th>MINUTE</th>
             </tr>
           </thead>
           <tbody>
