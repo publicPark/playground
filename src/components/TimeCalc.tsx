@@ -88,7 +88,7 @@ function TimeCalc() {
           <img src={Logo} className="logo" alt="mondaine" />
         </a>
       </div>
-      <h1>SUM TIME</h1>
+      <h1>{ sum.h } : { sum.m }</h1>
       <div className="card">
         <table>
           <thead>
@@ -106,7 +106,7 @@ function TimeCalc() {
         </button>
       </div>
       <p className="read-the-docs">
-        { sum.h } : { sum.m }
+        시계는 아무것도 알려주지 못합니다. 그저 그림일뿐.
       </p>
     </>
   )
