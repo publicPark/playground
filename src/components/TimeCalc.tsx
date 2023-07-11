@@ -53,7 +53,7 @@ function TimeCalc() {
     localStorage.setItem('timelist', JSON.stringify(newArray));
   }
 
-  const handleDelete = (idx:number) => (e:any) => {
+  const handleDelete = (idx:number) => () => {
     if (idx > -1){
       const newArray = [...list];
       newArray.splice(idx, 1);
