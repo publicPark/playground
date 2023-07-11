@@ -13,6 +13,10 @@ table{
   margin: 1em auto;
 }
 
+.buttons button:not(:last-child){
+  margin-right:5px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

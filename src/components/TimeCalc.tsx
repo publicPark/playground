@@ -19,12 +19,16 @@ const emptyElementString : HMString = {
   m: '0',
 }
 function TimeCalc() {
-  const [list, setList] = useState<HMString[]>(Array.from({length: 5}, () => emptyElementString))
+  const [list, setList] = useState<HMString[]>(Array.from({length: 5}, () => emptyElementString));
   // const [compare, setCompare] = useState<HM>({ h: 35, m: 0})
-  const [sum, setSum] = useState<HM>(emptyElement)
+  const [sum, setSum] = useState<HM>(emptyElement);
 
   const addElement = () => {
-    return setList(prevList => [...prevList, emptyElementString])
+    return setList(prevList => [...prevList, emptyElementString]);
+  }
+
+  const initAll = () => {
+    return setList(Array.from({length: 5}, () => emptyElementString));
   }
 
   const handleChange = (index:number) => (e:any) => {
@@ -49,6 +53,15 @@ function TimeCalc() {
     localStorage.setItem('timelist', JSON.stringify(newArray));
   }
 
+  const handleDelete = (idx:number) => (e:any) => {
+    if (idx > -1){
+      const newArray = [...list];
+      newArray.splice(idx, 1);
+      localStorage.setItem('timelist', JSON.stringify(newArray));
+      setList(newArray);
+    }
+  }
+
   const calculate = (newArray:HMString[]) => {
     const sumH:number = newArray.reduce((a, b) => a + parseInt(b.h), 0);
     const sumM:number = newArray.reduce((a, b) => a + parseInt(b.m), 0);
@@ -66,6 +79,9 @@ function TimeCalc() {
       </td>
       <td>
         <input type="number" value={e.m} placeholder='분' name="m" onChange={handleChange(i)}/>
+      </td>
+      <td>
+        <button onClick={handleDelete(i)}>-</button>
       </td>
     </tr>
   )
@@ -95,15 +111,21 @@ function TimeCalc() {
             <tr>
               <th>HOUR</th>
               <th>MINUTE</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             { li }
           </tbody>
         </table>
-        <button onClick={addElement}>
-          +
-        </button>
+        <div className="buttons">
+          <button onClick={addElement}>
+            +
+          </button>
+          <button onClick={initAll}>
+            초기화
+          </button>
+        </div>
       </div>
       <p className="read-the-docs">
         시계는 아무것도 알려주지 못합니다. 그저 그림일뿐.
