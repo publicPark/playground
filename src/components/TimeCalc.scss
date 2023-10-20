@@ -8,13 +8,13 @@
   filter: drop-shadow(0 0 2em hsla(237, 100%, 70%, 0.667));
 }
 
-table{
+table {
   max-width: 100%;
   margin: 1em auto;
 }
 
-.buttons button:not(:last-child){
-  margin-right:5px;
+.buttons button:not(:last-child) {
+  margin-right: 5px;
 }
 
 @keyframes logo-spin {
@@ -38,4 +38,13 @@ table{
 
 .read-the-docs {
   color: #888;
+}
+
+.timeRow {
+  input {
+    width: 50px;
+    margin: 5px;
+  }
+  button {
+  }
 }

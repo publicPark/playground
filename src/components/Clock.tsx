@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Clock.css";
+import "./Clock.scss";
 function Clock() {
   const segHour = 12;
   const segMin = 60;
@@ -38,7 +38,7 @@ function Clock() {
   useEffect(() => {
     const makeCircle = () => {
       const N = 12;
-      const r = 175;
+      const r = 80;
       for (let i = 0; i < N; i++) {
         const node = document.createElement("div");
         node.setAttribute("class", "indic");

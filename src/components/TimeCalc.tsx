@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./TimeCalc.css";
+import "./TimeCalc.scss";
 import Clock from "./Clock.tsx";
 
 type HM = {
@@ -30,7 +30,10 @@ function TimeCalc() {
   };
 
   const initAll = () => {
-    return setList(Array.from({ length: 5 }, () => emptyElementString));
+    const newArray = Array.from({ length: 5 }, () => emptyElementString);
+    setList(newArray);
+    calculate(newArray);
+    return;
   };
 
   const handleChange = (index: number) => (e: any) => {
@@ -75,7 +78,7 @@ function TimeCalc() {
   };
 
   const li = list.map((e, i) => (
-    <tr key={i}>
+    <tr key={i} className="timeRow">
       <td>
         <input
           type="number"
@@ -113,7 +116,7 @@ function TimeCalc() {
 
   return (
     <>
-      <div>
+      <div className="top">
         <a href="/" target="_blank">
           <Clock />
         </a>
